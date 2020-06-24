@@ -22,10 +22,8 @@ class MyApp extends StatelessWidget {
      // debugShowCheckedModeBanner: false,
       title: 'Home do Nubank',
       theme: ThemeData(
-
         primarySwatch: Colors.purple,
-
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        brightness: Brightness.dark,
       ),
       home: HomePage(),
     );
