@@ -5,18 +5,18 @@ class ItemMenuBottom extends StatelessWidget {
   final String text;
 
   const ItemMenuBottom({Key key, this.icon, this.text}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
       child: Container(
+        
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Icon(icon),
               Text(
                 text,

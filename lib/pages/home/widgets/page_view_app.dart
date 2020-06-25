@@ -1,4 +1,7 @@
 import 'package:HomeDoNubank/pages/home/widgets/card_app/card_app.dart';
+import 'package:HomeDoNubank/pages/home/widgets/first_card.dart';
+import 'package:HomeDoNubank/pages/home/widgets/second_card.dart';
+import 'package:HomeDoNubank/pages/home/widgets/third_card.dart';
 import 'package:flutter/material.dart';
 
 class PageViewApp extends StatelessWidget {
@@ -7,26 +10,29 @@ class PageViewApp extends StatelessWidget {
   final GestureDragUpdateCallback onPanUpdate;
   final bool showMenu;
 
-  const PageViewApp({Key key, this.top, this.onChanged, this.onPanUpdate, this.showMenu})
+  const PageViewApp(
+      {Key key, this.top, this.onChanged, this.onPanUpdate, this.showMenu})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedPositioned(
-      duration: Duration(milliseconds: 100),
+      duration: Duration(milliseconds: 250),
       curve: Curves.easeOut,
-      top: top, height: MediaQuery.of(context).size.height * 45, left: 0,
+      top: top, height: MediaQuery.of(context).size.height * .45, left: 0,
       right: 0,
       //  width: MediaQuery.of(context).size.width,
       child: GestureDetector(
         onPanUpdate: onPanUpdate,
         child: PageView(
           onPageChanged: onChanged,
-          physics:showMenu? NeverScrollableScrollPhysics() : BouncingScrollPhysics(),
+          physics: showMenu
+              ? NeverScrollableScrollPhysics()
+              : BouncingScrollPhysics(),
           children: [
-            CardApp(),
-            CardApp(),
-            CardApp(),
+            CardApp(child: FirstCard(),),
+            CardApp(child: SecondCard(),),
+            CardApp(child: ThirdCard(),),
           ],
         ),
       ),
