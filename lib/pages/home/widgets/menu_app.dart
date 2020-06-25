@@ -13,61 +13,62 @@ class MenuApp extends StatelessWidget {
       left: 0,
       right: 0,
       child: AnimatedOpacity(
-        duration: Duration(milliseconds: 200),
+        duration: Duration(milliseconds: 100),
         opacity: showMenu ? 1 : 0,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.55,
-          child: Column(
-            children: [
-              Image.network(
-                'https://webmobtuts.com/wp-content/uploads/2019/02/QR_code_for_mobile_English_Wikipedia.svg_.png',
-                height: 100,
-                color: Colors.white,
-              ),
-              Text.rich(
-                TextSpan(
-                  text: "Branco",
-                  children: [
-                    TextSpan(
-                        text: " 260 - Nu Pagamentos S.A",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ],
+          child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+                      child: Column(
+              children: [
+                Image.network(
+                  'https://webmobtuts.com/wp-content/uploads/2019/02/QR_code_for_mobile_English_Wikipedia.svg_.png',
+                  height: 100,
+                  color: Colors.white,
                 ),
-                style: TextStyle(fontSize: 12),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text.rich(
-                TextSpan(
-                  text: "Agência",
-                  children: [
-                    TextSpan(
-                        text: " xxxx ",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ],
+                Text.rich(
+                  TextSpan(
+                    text: "Branco",
+                    children: [
+                      TextSpan(
+                          text: " 260 - Nu Pagamentos S.A",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  style: TextStyle(fontSize: 12),
                 ),
-                style: TextStyle(fontSize: 12),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text.rich(
-                TextSpan(
-                  text: "Conta",
-                  children: [
-                    TextSpan(
-                        text: " xxxxxxx-x ",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ],
+                SizedBox(
+                  height: 5,
                 ),
-                style: TextStyle(fontSize: 12),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SingleChildScrollView(
-                child: Padding(
+                Text.rich(
+                  TextSpan(
+                    text: "Agência",
+                    children: [
+                      TextSpan(
+                          text: " xxxx ",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  style: TextStyle(fontSize: 12),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text.rich(
+                  TextSpan(
+                    text: "Conta",
+                    children: [
+                      TextSpan(
+                          text: " xxxxxxx-x ",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  style: TextStyle(fontSize: 12),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(
                     children: [
@@ -97,12 +98,12 @@ class MenuApp extends StatelessWidget {
                       ),
                        SizedBox(
                 height: 20,
-              ),
+                ),
                       Container(
                         height: 35,
                         width:double.infinity ,
                         decoration: BoxDecoration(
-                          border: Border.all(width: 0.7, color:Colors.white54)
+                         border: Border.all(width: 0.7, color:Colors.white54)
                         ),
                         child: RaisedButton(
                             color: Colors.purple[800],
@@ -120,9 +121,9 @@ class MenuApp extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -1,4 +1,4 @@
-
+import 'package:HomeDoNubank/pages/home/widgets/item_menu_bottom.dart';
 import 'package:HomeDoNubank/pages/home/widgets/menu_app.dart';
 import 'package:HomeDoNubank/pages/home/widgets/my_app_bar.dart';
 import 'package:HomeDoNubank/pages/home/widgets/page_view_app.dart';
@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-   bool _showMenu;
+  bool _showMenu;
   int _currentIndex;
   double _yPosition;
 
@@ -44,10 +44,10 @@ class _HomePageState extends State<HomePage> {
               });
             },
           ),
-        
+
           MenuApp(
-             top: _screenHeigth * .20,
-             showMenu: _showMenu,
+            top: _screenHeigth * .20,
+            showMenu: _showMenu,
           ),
           // BottomMenu(
           //   showMenu: _showMenu,
@@ -70,36 +70,100 @@ class _HomePageState extends State<HomePage> {
               double positionTopLimit = _screenHeigth * .24;
               double midlePosition = positionBottomLimit - positionTopLimit;
               midlePosition = midlePosition / 2;
-              setState(() {
-                _yPosition += details.delta.dy;
+              setState(
+                () {
+                  _yPosition += details.delta.dy;
 
-                _yPosition = _yPosition < positionTopLimit
-                    ? positionTopLimit
-                    : _yPosition;
-
-                _yPosition = _yPosition > positionBottomLimit
-                    ? positionBottomLimit
-                    : _yPosition;
-
-                if (_yPosition != positionBottomLimit && details.delta.dy > 0) {
-                  _yPosition =
-                      _yPosition > positionTopLimit + midlePosition - 50
-                          ? positionBottomLimit
-                          : _yPosition;
-                }
-
-                if (_yPosition != positionTopLimit && details.delta.dy < 0) {
-                  _yPosition = _yPosition < positionBottomLimit - midlePosition
+                  _yPosition = _yPosition < positionTopLimit
                       ? positionTopLimit
                       : _yPosition;
-                }
 
-                if (_yPosition == positionBottomLimit) {
-                  _showMenu = true;
-                } else if (_yPosition == positionTopLimit) {
-                  _showMenu = false;
-                }
-              });
+                  _yPosition = _yPosition > positionBottomLimit
+                      ? positionBottomLimit
+                      : _yPosition;
+
+                  if (_yPosition != positionBottomLimit &&
+                      details.delta.dy > 0) {
+                    _yPosition =
+                        _yPosition > positionTopLimit + midlePosition - 50
+                            ? positionBottomLimit
+                            : _yPosition;
+                  }
+
+                  if (_yPosition != positionTopLimit && details.delta.dy < 0) {
+                    _yPosition =
+                        _yPosition < positionBottomLimit - midlePosition
+                            ? positionTopLimit
+                            : _yPosition;
+                  }
+
+                  if (_yPosition == positionBottomLimit) {
+                    _showMenu = true;
+                  } else if (_yPosition == positionTopLimit) {
+                    _showMenu = false;
+                  }
+                  AnimatedPositioned(
+                    duration: Duration(milliseconds: 200),
+                    bottom: !_showMenu
+                        ? 0 + MediaQuery.of(context).padding.bottom
+                        : 0,
+                    left: 0,
+                    right: 0,
+                    height: _screenHeigth * 0.14,
+                    child: IgnorePointer(
+                      ignoring: _showMenu,
+                                          child: AnimatedOpacity(
+                        duration: Duration(milliseconds: 200),
+                        opacity: !_showMenu ? 1 : 0,
+                        child: Container(
+                          child: ListView(
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              ItemMenuBottom(
+                                icon: Icons.person_add,
+                                text: "Indicar amigos",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.phone_android,
+                                text: "Recarga de celular",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.chat,
+                                text: "Cobrar",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.monetization_on,
+                                text: "Empréstimo",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.move_to_inbox,
+                                text: "Depositar",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.mobile_screen_share,
+                                text: "Transferir",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.format_align_center,
+                                text: "Ajustar limite",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.chrome_reader_mode,
+                                text: "Pagar",
+                              ),
+                              ItemMenuBottom(
+                                icon: Icons.lock_open,
+                                text: "Bloquear cartão",
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
             },
           ),
         ],
