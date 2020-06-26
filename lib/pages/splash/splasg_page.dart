@@ -12,7 +12,8 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     delay();
   }
-Future<void> delay() async {
+
+  Future<void> delay() async {
     return await Future.delayed(
       Duration(seconds: 2),
       () {
@@ -32,22 +33,21 @@ Future<void> delay() async {
     return Scaffold(
       backgroundColor: Colors.purple[800],
       body: Center(
-
-        child:Row(
-          children: [
- Text("Genival"), 
- 
- 
- Image.asset(
-          'assets/images/nubank-logo.png',
-          height: 50,
-          color: Colors.white,
-        ),
-          ],
-        )
-        
-      ),
-      
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          
+          Image.asset(
+            'assets/images/nubank-logo.png',
+            height: 50,
+            color: Colors.white,
+          ),
+          Text("  Genival", style: TextStyle(
+            fontSize: 40, fontWeight: FontWeight.bold
+          ),),
+        ],
+      )),
     );
   }
 }
