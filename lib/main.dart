@@ -1,4 +1,5 @@
 import 'package:HomeDoNubank/pages/home/home_page.dart';
+import 'package:HomeDoNubank/pages/splash/splasg_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         brightness: Brightness.dark,
       ),
-      home: HomePage(),
+      home: SplashPage(),
     );
   }
 }

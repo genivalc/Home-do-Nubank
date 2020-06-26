@@ -1,4 +1,4 @@
-import 'package:HomeDoNubank/pages/home/widgets/item_menu.dart';
+import 'package:HomeDoNubank/pages/home/widgets/menu/item_menu.dart';
 import 'package:flutter/material.dart';
 
 class MenuApp extends StatelessWidget {

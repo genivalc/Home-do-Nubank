@@ -1,4 +1,5 @@
-import 'package:HomeDoNubank/pages/home/widgets/item_menu_bottom.dart';
+import 'package:HomeDoNubank/pages/home/widgets/bottom_menu/item_menu_bottom.dart';
+
 import 'package:flutter/material.dart';
 
 class BottomMenu extends StatefulWidget {
